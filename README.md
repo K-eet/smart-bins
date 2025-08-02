@@ -6,6 +6,7 @@ Ensure [nodejs](https://nodejs.org/en), [git and git bash](https://git-scm.com/d
 ## 2. Setup SQL database
 1. In pgadmin4 (or your preferred Postgresql client), create a new database named `smart_trash`
 2. Note your username and password for later
+> note: Don't worry about adding data. The first time you run the backend, 2 tables (`trashbin` and `collectionschedule`, both already populated) will automatically be created in the `smart_trash` database.
 ## 3. Clone this repo
 `git clone https://github.com/K-eet/smart-bins.git`
 ## 4. Setup Environment variables
@@ -56,10 +57,23 @@ DB_NAME=smart_trash
         - **Sensor Simulation**: Background task simulates fill level changes.
         - **Demo Data**: Seeds database with sample bins and schedules on startup.
         - **CORS**: Allows frontend to communicate with backend.
+## PostgreSQL Database (smart_trash)
+- **Tables**
+    - **trashbins**: Current state and long-term statistics for every physical bin.
+    - **collectionschedule**: Planned and completed trash-collection jobs.
+- **How the backend uses the database (Main Features)**
+    - **Real-time Updates**: A background task periodically increases `fill_level` for each `trashbin`. When a bin is emptied (via the “Empty” action) the API sets `fill_level` to 0 and records `last_emptied_at`.
+    - **Scheduling collections**: Creating a schedule row via `/api/schedules`inserts into `collectionschedule`. When a driver marks a job complete, the API timestamps `completed_at` and switches `status` to done.
+    - **Data integrity & indexing**:
+        - Foreign-key constraints ensure a schedule can’t exist for a non-existent bin.
+        - Composite indexes on (`status`, `district`) and (`bin_type`, `fill_level`) speed up the dashboard’s filter queries.
 ## How They Work Together
 - The **frontend** provides an interactive dashboard for managing smart bins, sending user actions (add, empty, schedule, etc.) as HTTP requests to the **backend**.
-- The **backend** processes these requests, updates the database, and returns updated data.
+- The **backend** processes these requests, updates the **database**, and returns updated data.
 - The **frontend** fetches and displays this data, keeping the UI in sync with the **backend** state.
 
 **Summary**:
 The app is a full-stack smart trash management system: Vue/Vuetify frontend for user interaction, FastAPI/SQLModel backend for data and business logic, with real-time-like updates and demo data for testing.
+
+# Screenshots
+!(Screenshots\Screenshot 2025-08-03 025847.png)
