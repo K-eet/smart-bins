@@ -77,3 +77,7 @@ The app is a full-stack smart trash management system: Vue/Vuetify frontend for 
 
 # Screenshots
 ![](</Screenshots/Screenshot 2025-08-03 025847.png>)
+![](</Screenshots/Screenshot 2025-08-03 025950.png>)
+![](</Screenshots/Screenshot 2025-08-03 030008.png>)
+![](</Screenshots/Screenshot 2025-08-03 030018.png>)
+![](</Screenshots/Screenshot 2025-08-03 030022.png>)
