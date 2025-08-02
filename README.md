@@ -18,16 +18,16 @@ DB_HOST=localhost
 DB_NAME=smart_trash
 ```
 ## 5. Create Virtual Environment and install requirements
-1. open a new terminal window and `cd` to the project root (`smart-bins`)
+1. open a new terminal window and `cd ~/smart-bins` (the project root)
 2. `python -m venv .venv`
 3. `.venv\Scripts\activate`
 ## 6. Run Backend Server
-1. In the same terminal window, `cd backend`
-2. run `python -m pip install -r requirements.txt`
+1. In the same terminal window, `cd ~/smart-bins/backend`
+2. `python -m pip install -r requirements.txt`
 3. `uvicorn main:app --reload`
 ## 7. Run Frontend Web UI
 1. Open a new terminal window (do not close the exisitng one)
-2. `cd` to `smart-bins/frontend`
+2. `cd ~/smart-bins/frontend`
 3. `npm install -r requirements.txt`
 4. `npm run dev`
 
