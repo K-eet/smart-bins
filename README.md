@@ -10,8 +10,8 @@ Ensure nodejs, git bash, Postgresql and corresponding client (e.g. pgadmin4) are
 ## 4. Setup Environment variables
 In the `backend` folder, create a `.env` file and add the follwing variables:
 ```env
-DB_USER=your_username
-DB_PASSWORD=your_password
+DB_USER=USERNAME (your username)
+DB_PASSWORD=******** (your password)
 DB_HOST=localhost
 DB_NAME=smart-trash
 ```
