@@ -1,7 +1,8 @@
 # Setup Instructions
 > note: this setup assumes you are using Windows
 ## 1. Install prerequisites
-Ensure nodejs, git bash, Postgresql and corresponding client (e.g. pgadmin4) are installed
+Ensure [nodejs](https://nodejs.org/en), [git and git bash](https://git-scm.com/downloads), [Postgresql](https://www.postgresql.org/download/) and corresponding client (e.g. pgadmin4) are installed.
+> note: pgadmin4 should come installed along with postgresql
 ## 2. Setup SQL database
 1. In pgadmin4 (or your preferred Postgresql client), create a new database named `smart_trash`
 2. Note your username and password for later
