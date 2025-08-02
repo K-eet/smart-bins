@@ -76,4 +76,4 @@ DB_NAME=smart_trash
 The app is a full-stack smart trash management system: Vue/Vuetify frontend for user interaction, FastAPI/SQLModel backend for data and business logic, with real-time-like updates and demo data for testing.
 
 # Screenshots
-![](Screenshots\Screenshot 2025-08-03 025847.png)
+!([Screenshots\Screenshot 2025-08-03 025847.png](https://github.com/K-eet/smart-bins/blob/main/Screenshots/Screenshot%202025-08-03%20025847.png))
