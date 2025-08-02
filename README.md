@@ -13,7 +13,7 @@ In the `backend` folder, create a `.env` file and add the follwing variables:
 DB_USER=USERNAME (your username)
 DB_PASSWORD=******** (your password)
 DB_HOST=localhost
-DB_NAME=smart-trash
+DB_NAME=smart_trash
 ```
 ## 5. Create Virtual Environment and install requirements
 1. open a new terminal window and `cd` to the project root (`smart-bins`)
