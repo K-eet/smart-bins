@@ -6,6 +6,7 @@ Ensure nodejs, git bash, Postgresql and corresponding client (e.g. pgadmin4) are
 1. In pgadmin4 (or your preferred Postgresql client), create a new database named `smart_trash`
 2. Note your username and password for later
 ## 3. Clone this repo
+`git clone https://github.com/K-eet/smart-bins.git`
 ## 4. Setup Environment variables
 In the `backend` folder, create a `.env` file and add the follwing variables:
 ```env
