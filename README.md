@@ -28,3 +28,37 @@ DB_NAME=smart-trash
 2. `cd` to `smart-bins/frontend`
 3. `npm install -r requirements.txt`
 4. `npm run dev`
+
+# Description of System Components and Logic
+## Frontend (App.vue)
+- **Frameworks/Libraries**: Vue 3, Vuetify (UI), fetch API for HTTP.
+- **Main Features**:
+    - **Dashboard**: Displays statistics (total bins, full bins, maintenance, average fill).
+    - **Filters**: Users can filter bins by district, type, status, and minimum fill.
+    - **Bins Table**: Lists all bins with location, type, fill level, status, last emptied, and actions (schedule, empty, maintenance).
+    - **Dialogs**: For adding bins and scheduling collections.
+    - **Actions**: Users can add bins, empty bins, toggle maintenance, and schedule/complete collections.
+    - **Auto-refresh**: Data auto-refreshes every 30 seconds.
+    - **Data Flow**: Uses fetch to call backend API endpoints for bins, stats, and schedules. User actions trigger API calls and UI updates.
+## Backend (main.py)
+- **Frameworks/Libraries**: FastAPI, SQLModel (ORM), Pydantic, Uvicorn, dotenv, PostgreSQL.
+- **Main Features**:
+    - **Models**: Defines TrashBin and CollectionSchedule tables, and related Pydantic schemas.
+    - **API Endpoints**:
+        - `/api/bins`: CRUD for bins (list, create, update, empty).
+        - `/api/schedules`: CRUD for collection schedules.
+        - `/api/stats`: Returns bin statistics.
+    - **Business Logic**:
+        - **Bin Creation**: Accepts bin data, stores with uppercase bin_type for DB, but expects lowercase from frontend.
+        - **Emptying Bins**: Sets fill to 0, updates status and last emptied timestamp.
+        - **Maintenance**: Toggle maintenance status and update bin accordingly.
+        - **Sensor Simulation**: Background task simulates fill level changes.
+        - **Demo Data**: Seeds database with sample bins and schedules on startup.
+        - **CORS**: Allows frontend to communicate with backend.
+## How They Work Together
+- The **frontend** provides an interactive dashboard for managing smart bins, sending user actions (add, empty, schedule, etc.) as HTTP requests to the **backend**.
+- The **backend** processes these requests, updates the database, and returns updated data.
+- The **frontend** fetches and displays this data, keeping the UI in sync with the **backend** state.
+
+**Summary**:
+The app is a full-stack smart trash management system: Vue/Vuetify frontend for user interaction, FastAPI/SQLModel backend for data and business logic, with real-time-like updates and demo data for testing.
