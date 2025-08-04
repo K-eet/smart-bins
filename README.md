@@ -1,14 +1,13 @@
 # Setup Instructions
 > note: this setup assumes you are using Windows
 ## 1. Install prerequisites
-Ensure [nodejs](https://nodejs.org/en), [git and git bash](https://git-scm.com/downloads), [Postgresql](https://www.postgresql.org/download/) and corresponding client (e.g. pgadmin4) are installed.
-> note: pgadmin4 should come installed along with postgresql
+Ensure [nodejs](https://nodejs.org/en), [python](https://www.python.org/downloads/), [git and git bash](https://git-scm.com/downloads), [Postgresql](https://www.postgresql.org/download/) and corresponding client (e.g. pgadmin4) are installed.
 ## 2. Setup SQL database
 1. In pgadmin4 (or your preferred Postgresql client), create a new database named `smart_trash`
 2. Note your username and password for later
 > note: Don't worry about adding data. The first time you run the backend, 2 tables (`trashbin` and `collectionschedule`, both already populated) will automatically be created in the `smart_trash` database.
 ## 3. Clone this repo
-`git clone https://github.com/K-eet/smart-bins.git`
+Using git bash, `git clone https://github.com/K-eet/smart-bins.git`
 ## 4. Setup Environment variables
 In the `backend` folder, create a `.env` file and add the follwing variables:
 ```env
@@ -25,11 +24,14 @@ DB_NAME=smart_trash
 1. In the same terminal window, `cd ~/smart-bins/backend`
 2. `python -m pip install -r requirements.txt`
 3. `uvicorn main:app --reload`
+4. Go to http://127.0.0.1:8000/docs to view the API endpoints
+
 ## 7. Run Frontend Web UI
 1. Open a new terminal window (do not close the exisitng one)
 2. `cd ~/smart-bins/frontend`
-3. `npm install -r requirements.txt`
+3. `npm i`
 4. `npm run dev`
+5. Ctrl + click the http://localhost:3000/ link to access the Web UI
 
 # Description of System Components and Logic
 ## Frontend (App.vue)
